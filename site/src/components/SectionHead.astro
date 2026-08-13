@@ -1,0 +1,19 @@
+---
+// Numbered section head — Ojuju numeral (its one sanctioned use besides the
+// footer) + Fraunces title. DESIGN-lubugo.md §3.
+interface Props {
+  num: string; // "01"
+  eyebrow?: string;
+  title: string;
+  id?: string;
+}
+const { num, eyebrow, title, id } = Astro.props;
+---
+
+<div class="section-head" id={id}>
+  <span class="numeral" aria-hidden="true">{num}</span>
+  <div>
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2>{title}</h2>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+# ===================================================================
+# TEACHING PAGE CONTENT
+# Edit the text between the quotes. Keep the quotes, dashes (-), and
+# indentation. The teaching philosophy paragraph lives in a separate file:
+# src/content/pages/teaching-philosophy.md
+# ===================================================================
+
+# One-sentence summary under the "Teaching" heading.
+lede: "Ten years in the classroom across two continents — from IT lecturing in Uganda to graduate information-systems courses in California."
+
+# The small line next to "Student Evaluations".
+evalHead: "Spring 2026 · 4 sections · 45 respondents"
+
+# Evaluation numbers. "outOf" is the small grey text after the number.
+stats:
+  - value: "4.86"
+    outOf: "/6.00"
+    label: "Overall quality of instruction"
+  - value: "4.97"
+    outOf: "/6.00"
+    label: "Contribution to student learning"
+  - value: "53.6"
+    outOf: "%"
+    label: "Response rate"
+
+# Courses at each institution. To add a course, copy a "- " line.
+csusb:
+  - "IST 2310 — Application Development"
+  - "IST 2510 — Big Data Analytics"
+  - "IST 3110 — Management of Information Technology"
+  - "IST 5930 — Seminar in Information Systems & Technology (graduate)"
+
+csusbNote: "Taught across in-person, online, and hybrid sections (Fall 2025 – Summer 2026); continuing in Fall 2026."
+
+kisubi:
+  - "Computer Teaching Methods"
+  - "Computer Studies / Fundamentals of IT"
+  - "Educational Technology"
+  - "IT Project Management (Final Project)"
+  - "Management Information Systems"
+  - "Office Automation"
+  - "Database Management Systems"
+  - "General Research & Educational Technology"
+  - "Artificial Intelligence"
+  - "Information Systems Security"
+  - "ICT for Entrepreneurship & Business"
+  - "Computer Applications"
+  - "Data Communication & Networking"
+  - "Software Engineering"
+  - "Enterprise Resource Planning"
+
+cgu:
+  - "IST 371: GeoAI & Geospatial Deep Learning — course developer (Quality Matters-aligned)"
+
+# Mentorship bullet points.
+mentorship:
+  - "Doctoral research supervisor for a Ph.D. candidate studying strategic adoption of generative GeoAI."
+  - "Mentored three Harvey Mudd College Clinic teams building computing curricula for Musizi University (2023–present)."
+  - "Supervised undergraduate and graduate capstone research at the University of Kisubi."
+
+# The photo under Mentorship.
+figure:
+  src: "/photos/2023_kisubi-award-of-appreciation.jpg"
+  alt: "University of Kisubi Award of Appreciation certificate"
+  caption: 'University of Kisubi Award of Appreciation — "for serving the university community through IT application skilling."'

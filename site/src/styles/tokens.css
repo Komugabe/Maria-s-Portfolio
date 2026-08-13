@@ -1,0 +1,45 @@
+/*
+  Lubugo design tokens — Direction B (design/DESIGN-lubugo.md §2–3).
+  The reference implementation is design/style-tile-lubugo.html.
+  "Neutral chrome, figures carry color": chrome stays bone/bark; saturation lives in photos.
+*/
+:root {
+  /* Color — 60/25/10/4/1 proportion rule (DESIGN-lubugo §2) */
+  --bone: #f5efe4; /* ground — royal-barkcloth cream; never #fff */
+  --bone-raised: #ede4d3; /* cards, wells */
+  --bark-ink: #2b211c; /* text — muzuukizi black-brown; never #000 */
+  --ink-soft: #6b5d52; /* secondary text */
+  --lubugo: #a85c38; /* primary accent — links, active nav, numerals, buttons */
+  --lubugo-hover: #8b4a2f; /* accent hover; also the AA-safe value for small accent text */
+  --lubugo-deep: #5c3a2e; /* dark surfaces, footer band */
+  --matoke: #5c7a3b; /* secondary — tags, success, data-viz #2 */
+  --crane-gold: #d9a441; /* one highlight per view, small */
+  --lake: #4a6b72; /* cool foil for maps/figures; alt link color */
+  --crane-grey: #8c8f8a; /* hairlines, disabled */
+  --wattle: #c0392b; /* micro-accent only — focus ring, north-arrow tip */
+
+  /* Type (DESIGN-lubugo §3). The --font-* vars are emitted by the Astro Fonts API
+     (astro.config.mjs) and already include size-adjusted fallback stacks; the
+     value after the first comma is a guard for before those styles apply. */
+  --font-display: var(--font-fraunces, Georgia, 'Times New Roman', serif);
+  --font-body: var(--font-inter, system-ui, -apple-system, sans-serif);
+  --font-mono: var(--font-plex-mono, ui-monospace, 'SFMono-Regular', monospace);
+  --font-numeral: var(--font-ojuju, Georgia, serif); /* section numerals / footer name ONLY */
+
+  /* Scale */
+  --measure: 68ch; /* max body line length */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem); /* body 17–18px */
+  --step-1: clamp(1.33rem, 1.2rem + 0.6vw, 1.6rem);
+  --step-2: clamp(1.78rem, 1.5rem + 1.2vw, 2.5rem);
+  --step-3: clamp(2.37rem, 1.9rem + 2.2vw, 3.9rem);
+
+  /* Space & radius */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --radius: 4px;
+  --hairline: 1px solid color-mix(in srgb, var(--crane-grey) 55%, transparent);
+}

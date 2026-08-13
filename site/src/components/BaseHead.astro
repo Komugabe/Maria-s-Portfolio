@@ -1,0 +1,56 @@
+---
+// Site-wide <head>: title, canonical, OpenGraph + Twitter cards (SEO.md §C).
+// Page-specific tags (citation_* for publications, JSON-LD) are injected via
+// the parent's <slot name="head" /> in BaseLayout.
+import { Font } from 'astro:assets';
+import '../styles/base.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Site-absolute path to the OG image, e.g. "/og/home.png". 1200×630. */
+  image?: string;
+  /** OpenGraph type. "article" on publications and blog posts. */
+  ogType?: 'website' | 'article' | 'profile';
+}
+
+const { title, description, image = '/og/default.png', ogType = 'website' } = Astro.props;
+
+// Astro.site must be set (astro.config.mjs) for these to resolve to absolute URLs.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imageURL = new URL(image, Astro.site).href;
+const siteName = 'Dr. Maria Assumpta Komugabe';
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- OpenGraph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+
+<!-- Self-hosted fonts (Astro Fonts API). Preload the two above-the-fold faces
+     (Fraunces headings, Inter body); Plex Mono / Ojuju swap in. -->
+<Font cssVariable="--font-fraunces" preload />
+<Font cssVariable="--font-inter" preload />
+<Font cssVariable="--font-plex-mono" />
+<Font cssVariable="--font-ojuju" />

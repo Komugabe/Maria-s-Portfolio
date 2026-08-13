@@ -1,0 +1,599 @@
+/*
+  Lubugo motifs + components — translated from the binding reference
+  implementation design/style-tile-lubugo.html. Element defaults live in base.css.
+*/
+
+/* ---- Header (top bar, hairline base) ---- */
+.site-header {
+  border-bottom: var(--hairline);
+}
+.site-header .bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+}
+.site-header .wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--bark-ink);
+  text-decoration: none;
+  margin-right: auto;
+}
+.nav-group {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+}
+.site-header nav {
+  display: flex;
+  gap: var(--space-md);
+  align-items: baseline;
+}
+.site-header nav a {
+  color: var(--bark-ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+.site-header nav a:hover {
+  color: var(--lubugo-hover);
+}
+.site-header nav a[aria-current='page'] {
+  color: var(--lubugo-hover);
+  border-bottom: 2px solid var(--lubugo);
+}
+
+/* Hamburger — hidden on desktop, shown ≤900px */
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  padding: 10px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--bark-ink);
+}
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.nav-toggle-bars {
+  position: relative;
+}
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+.nav-toggle-bars::before {
+  top: -7px;
+}
+.nav-toggle-bars::after {
+  top: 7px;
+}
+/* Morph to an X when open */
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars {
+  background: transparent;
+}
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .site-header .wordmark {
+    margin-right: 0;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-group {
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    display: none;
+    padding-top: var(--space-sm);
+  }
+  .nav-group.open {
+    display: flex;
+  }
+  .site-header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
+/* ---- Page intro ---- */
+.page-head {
+  margin-bottom: var(--space-lg);
+}
+.lede {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin-top: var(--space-sm);
+}
+
+/* ---- Numbered section head (Ojuju numeral) ---- */
+.section-head {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin: var(--space-xl) 0 var(--space-md);
+}
+.section-head .numeral {
+  font-size: 2.8rem;
+  flex: none;
+}
+.section-head .eyebrow {
+  display: block;
+  margin-bottom: 4px;
+}
+.section-head h2 {
+  margin: 0.1rem 0 0;
+}
+
+/* ---- Long-form prose ---- */
+.prose {
+  max-width: var(--measure);
+}
+.prose > * + * {
+  margin-top: var(--space-md);
+}
+.prose h2 {
+  margin-top: var(--space-xl);
+}
+.prose h3 {
+  margin-top: var(--space-lg);
+  font-size: 1.15rem;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+}
+.prose li {
+  max-width: none;
+}
+.prose li + li {
+  margin-top: 0.35rem;
+}
+.prose a {
+  text-decoration: underline;
+}
+
+/* ---- Stat tiles (teaching evals etc.) ---- */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin: var(--space-lg) 0;
+}
+.stat .n {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-2);
+  color: var(--lubugo);
+  line-height: 1;
+}
+.stat .l {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  max-width: 24ch;
+}
+
+/* ---- Profile / link row ---- */
+.linkrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space-md);
+}
+.linkrow a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--crane-grey);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  color: var(--bark-ink);
+}
+.linkrow a:hover {
+  border-color: var(--lubugo);
+  color: var(--lubugo-hover);
+}
+
+/* ---- CV ---- */
+.cv-entry {
+  margin-top: var(--space-md);
+}
+.cv-entry .role {
+  font-weight: 600;
+}
+.cv-entry .meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ---- Photo gallery ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+.gallery figure {
+  margin: 0;
+  background: var(--bone-raised);
+  border: var(--hairline);
+  padding: 8px;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  background: var(--crane-grey);
+}
+.gallery figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+/* ---- Media plate (a single bordered, captioned figure) ---- */
+.plate {
+  margin: var(--space-lg) 0;
+  background: var(--bone-raised);
+  border: var(--hairline);
+  padding: 8px;
+  max-width: 34rem;
+}
+.plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.plate figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+/* Impact/metric line under a research theme */
+.impact {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--lubugo-hover);
+  margin-top: var(--space-md);
+  padding-left: 12px;
+  border-left: 2px solid var(--crane-gold);
+}
+
+/* A "coming soon" reserved slot (future Malaria Atlas dashboard) */
+.reserved {
+  margin-top: var(--space-md);
+  border: 1px dashed var(--crane-grey);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+.reserved .tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--matoke);
+}
+
+/* ---- 404 ---- */
+.offmap {
+  text-align: center;
+  padding-block: var(--space-xl);
+}
+.offmap .mono {
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  background: var(--lubugo);
+  color: var(--bone);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 11px 22px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 1.5px solid var(--lubugo);
+}
+.btn:hover {
+  background: var(--lubugo-hover);
+  border-color: var(--lubugo-hover);
+  color: var(--bone);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--bark-ink);
+  border-color: var(--crane-gold);
+}
+.btn.ghost:hover {
+  background: color-mix(in srgb, var(--crane-gold) 16%, transparent);
+  color: var(--bark-ink);
+}
+.btn.cv {
+  padding: 7px 14px;
+  font-size: 0.8rem;
+}
+
+/* ---- Chevron divider — the only pattern, one row tall (DESIGN-lubugo §4.3) ---- */
+.chevron {
+  height: 12px;
+  margin: var(--space-xl) 0 var(--space-lg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 12 L6 2 L12 12' fill='none' stroke='%23A85C38' stroke-width='1.6'/%3E%3Cpath d='M12 12 L18 2 L24 12' fill='none' stroke='%23C89A6B' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+.chevron[data-label]::after {
+  content: attr(data-label);
+  display: table;
+  margin: -30px auto 0;
+  padding: 0 14px;
+  background: var(--bone);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: var(--hairline);
+  padding-block: var(--space-xl);
+}
+.hero .rings {
+  position: absolute;
+  right: -140px;
+  top: -160px;
+  width: 34rem;
+  height: 34rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.hero h1 {
+  margin-top: 0.75rem;
+  max-width: 18ch;
+}
+.id-line {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+  max-width: 40ch;
+}
+.creds {
+  margin-top: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.hero-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Portrait plate */
+.portrait {
+  background: var(--bone-raised);
+  border: var(--hairline);
+  padding: 14px;
+}
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portrait .ph {
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 62% 30%, var(--crane-gold) 0 7%, transparent 7.5%),
+    linear-gradient(160deg, #8c8f8a 0%, #6e7276 45%, #4a4e52 100%);
+}
+.portrait .src {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---- Publication entry (DESIGN.md §8) ---- */
+.pub {
+  border-left: 3px solid var(--lubugo);
+  padding: 4px 0 4px 20px;
+  margin-top: var(--space-lg);
+}
+.pub h3 {
+  font-size: 1.18rem;
+  margin-bottom: 0.35rem;
+}
+.pub h3 a {
+  text-decoration: none;
+  color: var(--bark-ink);
+}
+.pub h3 a:hover {
+  color: var(--lubugo-hover);
+}
+.pub .authors {
+  font-size: 0.9rem;
+}
+.pub .venue {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.pub .plain {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  max-width: 70ch;
+}
+.chips {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips a {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--lubugo);
+  padding: 4px 10px;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+.chips a:hover {
+  background: var(--lubugo);
+  color: var(--bone);
+}
+
+/* ---- News list ---- */
+.news {
+  margin-top: var(--space-md);
+  display: grid;
+  gap: 12px;
+  max-width: var(--measure);
+}
+.news .item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+.news .d {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--lubugo-hover);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Footer band (dark, own grain) ---- */
+.site-footer {
+  margin-top: var(--space-xl);
+  background: var(--lubugo-deep);
+  color: #efe6d6;
+  position: relative;
+  overflow: hidden;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.site-footer .in {
+  position: relative;
+  padding-block: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+.site-footer .name {
+  font-family: var(--font-numeral);
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.site-footer .stamp {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.9;
+  color: #cbb89a;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.site-footer a {
+  color: #efe6d6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero .rings {
+    width: 22rem;
+    height: 22rem;
+    right: -100px;
+    top: -100px;
+  }
+  .news .item {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

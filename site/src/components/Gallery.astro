@@ -1,0 +1,23 @@
+---
+// Responsive photo grid. Photos serve from /photos/ (bundled from
+// assets/photos/web/). Pass items as { src, caption }.
+interface Photo {
+  src: string; // filename in /photos/, e.g. "2026-05-16_cgu-commencement-banner-bearer.jpg"
+  caption: string;
+}
+interface Props {
+  photos: Photo[];
+}
+const { photos } = Astro.props;
+---
+
+<div class="gallery">
+  {
+    photos.map((p) => (
+      <figure>
+        <img src={`/photos/${p.src}`} alt={p.caption} loading="lazy" />
+        <figcaption>{p.caption}</figcaption>
+      </figure>
+    ))
+  }
+</div>

@@ -1,0 +1,24 @@
+---
+// Concentric-ring mark (DESIGN-lubugo.md §4.2): heritage geometry (Kasubi dome,
+// coiled basketry) that is also GIS buffer/contour geometry. Slightly irregular,
+// offset center — never a perfect target. Used as hero backdrop, section mark, avatar.
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 560 560"
+  fill="none"
+  role="img"
+  aria-label="Concentric ring motif"
+>
+  <circle cx="290" cy="270" r="60" stroke="var(--lubugo)" stroke-width="1.1" />
+  <circle cx="283" cy="277" r="102" stroke="var(--lubugo)" stroke-width="1" />
+  <circle cx="292" cy="268" r="146" stroke="var(--lubugo)" stroke-width="1" />
+  <circle cx="280" cy="280" r="192" stroke="#C89A6B" stroke-width="1" />
+  <circle cx="288" cy="272" r="238" stroke="#C89A6B" stroke-width=".9" />
+  <circle cx="284" cy="276" r="270" stroke="#C89A6B" stroke-width=".8" stroke-dasharray="3 6" />
+</svg>

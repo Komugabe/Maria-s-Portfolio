@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { getEntry, render } from 'astro:content';
+import t from '../../data/teaching.yaml';
+
+// Course lists + stats: src/data/teaching.yaml · philosophy prose: src/content/pages/teaching-philosophy.md
+const { Content: Philosophy } = await render(await getEntry('pages', 'teaching-philosophy'));
+---
+
+<BaseLayout
+  title="Teaching"
+  description="Courses, teaching philosophy, evaluations, and mentorship by Dr. Maria Assumpta Komugabe — CSU San Bernardino, University of Kisubi, and the CGU GeoAI seminar."
+>
+  <div class="page-head">
+    <p class="eyebrow">Teaching</p>
+    <h1>Teaching</h1>
+    <p class="lede">{t.lede}</p>
+  </div>
+
+  <SectionHead num="01" eyebrow={t.evalHead} title="Student Evaluations" />
+  <div class="stats">
+    {t.stats.map((s) => (
+      <div class="stat">
+        <span class="n">{s.value}<span style="font-size:1rem;color:var(--ink-soft)">{s.outOf}</span></span>
+        <span class="l">{s.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <SectionHead num="02" eyebrow="Approach" title="Teaching Philosophy" />
+  <div class="prose">
+    <Philosophy />
+  </div>
+
+  <SectionHead num="03" eyebrow="Courses" title="Courses Taught" />
+  <div class="prose">
+    <h3>California State University, San Bernardino</h3>
+    <ul>{t.csusb.map((c) => <li>{c}</li>)}</ul>
+    <p style="color:var(--ink-soft);font-size:.9rem;margin-top:-.25rem">{t.csusbNote}</p>
+    <h3>University of Kisubi, Uganda</h3>
+    <ul>{t.kisubi.map((c) => <li>{c}</li>)}</ul>
+    <h3>Claremont Graduate University</h3>
+    <ul>{t.cgu.map((c) => <li>{c}</li>)}</ul>
+  </div>
+
+  <SectionHead num="04" eyebrow="Beyond the classroom" title="Mentorship" />
+  <div class="prose">
+    <ul>
+      {t.mentorship.map((m) => <li>{m}</li>)}
+    </ul>
+    <figure class="plate">
+      <img src={t.figure.src} alt={t.figure.alt} loading="lazy" />
+      <figcaption>{t.figure.caption}</figcaption>
+    </figure>
+  </div>
+</BaseLayout>

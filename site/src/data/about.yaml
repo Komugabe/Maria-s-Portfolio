@@ -1,0 +1,75 @@
+# ===================================================================
+# ABOUT PAGE CONTENT
+# Edit the text between the quotes. Keep the quotes, the dashes (-),
+# and the indentation exactly as they are. The bio paragraphs live in
+# a separate file: src/content/pages/about-bio.md
+# ===================================================================
+
+# The one-sentence summary under the "About Maria" heading.
+lede: "A geospatial data scientist working at the intersection of spatial analytics, artificial intelligence, healthcare logistics, and higher-education pedagogy — across the United States and Uganda."
+
+# Academic Appointments. To add one, copy a "- role / org / dates" block.
+appointments:
+  - role: "Research Fellow"
+    org: "Center for Information Systems & Technology, Claremont Graduate University"
+    dates: "May 2026 – Present"
+  - role: "Course Developer — IST 371: GeoAI & Geospatial Deep Learning"
+    org: "Claremont Graduate University"
+    dates: "May 2026 – Present"
+  - role: "Lecturer"
+    org: "Dept. of Information & Decision Sciences, California State University, San Bernardino"
+    dates: "Aug 2025 – Present"
+  - role: "Curriculum Consultant & Institutional Liaison"
+    org: "Harvey Mudd College Clinic – Musizi University Partnership"
+    dates: "Mar 2023 – Present"
+  - role: "Lecturer in Information Technology"
+    org: "University of Kisubi, Uganda"
+    dates: "Mar 2018 – 2025"
+
+# Education / degrees.
+education:
+  - degree: "Ph.D., Information Systems & Technology"
+    detail: "Claremont Graduate University · GIS Analytics & Solutions Development · conferred May 16, 2026"
+  - degree: "M.S., Information Systems & Technology"
+    detail: "Claremont Graduate University · GIS & Systems Development · 2023"
+  - degree: "M.S., Information Technology"
+    detail: "Uganda Martyrs University · 2017"
+  - degree: "B.A., Education (Computer Studies)"
+    detail: "Uganda Martyrs University · 2015"
+
+# Honors & Press. "url" is optional — leave it as: url: null  for no link.
+press:
+  - year: "2026"
+    text: "Commencement Banner Bearer & Ph.D. conferred — Center for Information Systems & Technology, CGU."
+    url: "https://www.cgu.edu/wp-content/uploads/2026/05/CGU-Commencement-260516-Program-v7.pdf"
+  - year: "2026"
+    text: '"Influential Women Distinguishes Maria A. Komugabe for Advancing Global Health Innovation Using Geospatial Data Science" — The Columbus Dispatch & The National Law Review.'
+    url: "https://www.dispatch.com/press-release/story/206089/influential-women-distinguishes-maria-a-komugabe-for-advancing-global-health-innovation-using-geospatial-data-science/"
+  - year: "2025–26"
+    text: "Honorable Mention, Transdisciplinary Studies Dissertation Award — Claremont Graduate University Transdisciplinary Studies Program (Richter Memorial Funds), recognizing high-impact, cross-disciplinary doctoral research."
+    url: "https://my.cgu.edu/transdisciplinary/2025-2026-transdisciplinary-studies-dissertation-award-fellows/"
+  - year: "2024"
+    text: "Feature — Harvey Mudd College Magazine (Summer 2024), on international computing curriculum partnerships."
+    url: "https://magazine.hmc.edu/summer-2024/quantum-computing-blood-feeding-insects-and-more/"
+  - year: "2023 / 2025"
+    text: "Inductee, Upsilon Pi Epsilon (UPE) Honor Society for the Computing & Information Disciplines."
+    url: null
+
+# Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
+gallery:
+  - src: "2026-05-16_cgu-commencement-banner-bearer.jpg"
+    caption: "CGU Commencement, May 16 2026 — Ph.D. conferred; carrying the CIST department banner."
+  - src: "2025-05-05_dissertation-proposal-defense.jpg"
+    caption: "With her dissertation committee after the proposal defense, CGU, May 2025."
+  - src: "2024-11-08_jhu-malaria-symposium-poster-1.jpg"
+    caption: "At the 10th Future of Malaria Research Symposium, Johns Hopkins, Nov 2024."
+  - src: "2024-04-30_hmc-poster-session.jpg"
+    caption: "Presenting the Musizi curricula poster with the HMC Clinic team, Apr 2024."
+  - src: "2023_kisubi-award-of-appreciation.jpg"
+    caption: "University of Kisubi Award of Appreciation for IT skilling service."
+  - src: "2024-01-02_uganda-equator-landmark.jpg"
+    caption: "At the Uganda Equator monument, Jan 2024."
+  - src: "2023-02-24_uganda-cultural-exhibit.jpg"
+    caption: "Sharing Ugandan culture at a cultural exhibit, Feb 2023."
+  - src: "2025-02-22_portrait-traditional-dress.jpg"
+    caption: "Portrait in traditional dress, Feb 2025."

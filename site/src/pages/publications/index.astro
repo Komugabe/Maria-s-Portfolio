@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('publications');
+
+// "Komugabe, Maria Assumpta" → "Komugabe, M. A." (abbreviate every given name)
+const abbrev = (n: string) => {
+  const [last, given] = n.split(/,\s*/);
+  if (!given) return last;
+  return `${last}, ${given.split(/\s+/).map((g) => `${g[0].toUpperCase()}.`).join(' ')}`;
+};
+const isMaria = (n: string) => /^(Komugabe|Assumpta-Komugabe)/.test(n);
+
+// Grouped in the order SITE-STRUCTURE.md §Publications specifies.
+const groups = [
+  { num: '01', title: 'Journal Articles', types: ['journal'] },
+  { num: '02', title: 'Conference Proceedings', types: ['conference', 'chapter'] },
+  { num: '03', title: 'Presentations', types: ['presentation'] },
+  { num: '04', title: 'Research Posters', types: ['poster'] },
+  { num: '05', title: 'Dissertation', types: ['thesis'] },
+].map((g) => ({
+  ...g,
+  items: all
+    .filter((p) => g.types.includes(p.data.venueType))
+    .sort((a, b) => b.data.year - a.data.year),
+}));
+---
+
+<BaseLayout
+  title="Publications"
+  description="Peer-reviewed journal articles, conference proceedings, presentations, posters, and the doctoral dissertation of Dr. Maria Assumpta Komugabe."
+>
+  <div class="page-head">
+    <p class="eyebrow">Publications</p>
+    <h1>Publications</h1>
+    <div class="linkrow">
+      <a href="https://scholar.google.com/citations?user=8DhWmzAAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://orcid.org/0000-0001-5392-0300">ORCID</a>
+    </div>
+  </div>
+
+  {
+    groups.filter((g) => g.items.length > 0).map((g) => (
+      <>
+        <SectionHead num={g.num} title={g.title} />
+        {g.items.map((p) => (
+          <article class="pub">
+            <h3>
+              <a href={`/publications/${p.id}/`}>{p.data.title}</a>
+            </h3>
+            <p class="authors">
+              {p.data.authors.map((a, i) => (
+                <>
+                  {i > 0 && ', '}
+                  {isMaria(a) ? <strong>{abbrev(a)}</strong> : abbrev(a)}
+                </>
+              ))}
+            </p>
+            <p class="venue">
+              {p.data.venue}
+              {p.data.volume && ` · ${p.data.volume}`}
+              {p.data.firstPage && `, ${p.data.firstPage}${p.data.lastPage ? `–${p.data.lastPage}` : ''}`}
+              {` · ${p.data.year}`}
+            </p>
+            {(p.data.pdf || p.data.doi) && (
+              <div class="chips">
+                {p.data.pdf && <a href={p.data.pdf}>PDF</a>}
+                {p.data.doi && <a href={`https://doi.org/${p.data.doi}`}>DOI</a>}
+              </div>
+            )}
+          </article>
+        ))}
+      </>
+    ))
+  }
+
+  <SectionHead num="06" title="Public Writing" />
+  <div class="prose">
+    <ul>
+      <li>
+        <a href="https://nilepost.co.ug/opinions/194014/will-ai-take-your-job">
+          "Will AI take your job?"
+        </a> — opinion, <em>Nile Post</em> (Apr 2024).
+      </li>
+    </ul>
+  </div>
+</BaseLayout>

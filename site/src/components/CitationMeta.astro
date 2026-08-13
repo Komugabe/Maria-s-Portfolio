@@ -1,0 +1,36 @@
+---
+// Highwire citation_* meta tags — how Google Scholar indexes a publication page
+// (SEO.md §A). One page per publication; do NOT also emit Dublin Core (DC.*).
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  pub: CollectionEntry<'publications'>['data'];
+}
+const { pub } = Astro.props;
+
+const pubDate = pub.date
+  ? `${pub.date.getUTCFullYear()}/${pub.date.getUTCMonth() + 1}/${pub.date.getUTCDate()}`
+  : String(pub.year);
+
+const isConference = pub.venueType === 'conference' || pub.venueType === 'chapter';
+const pdfURL = pub.pdf ? new URL(pub.pdf, Astro.site).href : undefined;
+---
+
+<meta name="citation_title" content={pub.title} />
+{pub.authors.map((a) => <meta name="citation_author" content={a} />)}
+<meta name="citation_publication_date" content={pubDate} />
+{
+  isConference ? (
+    <meta name="citation_conference_title" content={pub.venue} />
+  ) : (
+    <meta name="citation_journal_title" content={pub.venue} />
+  )
+}
+{pub.volume && <meta name="citation_volume" content={pub.volume} />}
+{pub.issue && <meta name="citation_issue" content={pub.issue} />}
+{pub.firstPage && <meta name="citation_firstpage" content={pub.firstPage} />}
+{pub.lastPage && <meta name="citation_lastpage" content={pub.lastPage} />}
+{pub.issn && <meta name="citation_issn" content={pub.issn} />}
+{pub.isbn && <meta name="citation_isbn" content={pub.isbn} />}
+{pub.doi && <meta name="citation_doi" content={pub.doi} />}
+{pdfURL && <meta name="citation_pdf_url" content={pdfURL} />}

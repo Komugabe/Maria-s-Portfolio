@@ -1,0 +1,82 @@
+# ===================================================================
+# CV PAGE CONTENT
+# Edit the text between the quotes. Keep the quotes, dashes (-), and
+# indentation exactly as they are. (The CV and About pages keep separate
+# lists on purpose — update both if a shared fact changes.)
+# ===================================================================
+
+appointments:
+  - role: "Lecturer, Information & Decision Sciences"
+    org: "California State University, San Bernardino"
+    dates: "Aug 2025 – Present"
+  - role: "Research Fellow, Center for Information Systems & Technology"
+    org: "Claremont Graduate University"
+    dates: "May 2026 – Present"
+  - role: "Course Developer, IST 371: GeoAI & Geospatial Deep Learning"
+    org: "Claremont Graduate University"
+    dates: "May 2026 – Present"
+  - role: "Curriculum Consultant & Institutional Liaison"
+    org: "Harvey Mudd College Clinic – Musizi University Partnership"
+    dates: "Mar 2023 – Present"
+  - role: "Lecturer, Information Technology"
+    org: "University of Kisubi, Uganda"
+    dates: "Mar 2018 – 2025"
+
+education:
+  - degree: "Ph.D., Information Systems & Technology (GIS Analytics & Solutions Development)"
+    detail: "Claremont Graduate University · conferred May 16, 2026"
+  - degree: "M.S., Information Systems & Technology (GIS & Systems Development)"
+    detail: "Claremont Graduate University · 2023"
+  - degree: "M.S., Information Technology"
+    detail: "Uganda Martyrs University · 2017"
+  - degree: "B.A., Education (Computer Studies)"
+    detail: "Uganda Martyrs University · 2015"
+
+# Honors & Awards (awards only — no links here).
+honors:
+  - year: "2026"
+    text: "Commencement Banner Bearer, Center for Information Systems & Technology — Claremont Graduate University."
+  - year: "2025–26"
+    text: "Honorable Mention, Transdisciplinary Studies Dissertation Award — Claremont Graduate University (Richter Memorial Funds)."
+  - year: "2023 / 2025"
+    text: "Inductee, Upsilon Pi Epsilon (UPE) Honor Society for the Computing & Information Disciplines."
+  - year: "2023"
+    text: "Award of Appreciation for IT skilling service — University of Kisubi, Uganda."
+
+# Research Interests — a simple list.
+interests:
+  - "Applied AI & Machine Learning"
+  - "Geographic Information Systems & Spatial Analytics"
+  - "Healthcare Information Systems & Informatics"
+  - "Predictive Modeling & Resource Allocation"
+  - "Data Quality, Governance & Responsible AI"
+  - "Design Science Research"
+  - "Organizational Adoption of Generative AI & GeoAI"
+  - "Decision-Support Systems"
+
+# Academic & Professional Service.
+service:
+  - "Peer Reviewer — BMC Infectious Diseases (2025)"
+  - "Peer Reviewer — Health Systems (Taylor & Francis / The OR Society)"
+  - "External Reviewer — DESRIST 2025"
+  - "Reviewer / Conference Service — ECIS 2024; PEARC'24 (Workforce Development, Training, Diversity & Education track)"
+
+# Technical Competencies (area + comma-separated list).
+skills:
+  - area: "Programming & Analytics"
+    list: "Python, Pandas, NumPy, SQL, SPSS, Excel, Access"
+  - area: "Artificial Intelligence"
+    list: "Applied ML, generative AI, GeoAI, predictive modeling, decision-support systems"
+  - area: "GIS & Visualization"
+    list: "ArcGIS Pro / Online / Enterprise, spatial analysis, geospatial modeling, data visualization"
+  - area: "Teaching & Instructional Design"
+    list: "Curriculum development, Quality Matters, project-based learning, online & hybrid instruction"
+
+# Industry Experience (single entry).
+industry:
+  role: "Data Analyst — Sacramento Municipal Utility District (SMUD)"
+  meta: "Sacramento, CA · Mar 2023 – Mar 2025"
+  description: "Data validation and quality assurance for workforce datasets; executive reports and public-facing dashboards; translating analytical findings for technical and non-technical stakeholders."
+
+# One-line summary above the link to the Publications page.
+publicationsSummary: "Eight peer-reviewed papers, two conference proceedings, a Health Tech Asia 2024 presentation, two research posters, and the doctoral dissertation."

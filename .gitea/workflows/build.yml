@@ -1,0 +1,59 @@
+name: Build (Gitea CI)
+
+# Gitea-only workflow. Gitea Actions reads both .gitea/workflows and
+# .github/workflows; GitHub ignores .gitea/. This verifies the site builds on
+# your Gitea runner (the same thing GitHub Actions will do), and saves the built
+# dist/ as an artifact you can download to preview locally.
+#
+# Prereqs on your Gitea instance:
+#   1. Actions enabled:  [actions] ENABLED = true  in app.ini
+#   2. The host-mode runner `mac-mini-host` (labels: self-hosted, macos, mac-mini)
+#      registered and online. Host mode runs the JS actions below with the host's
+#      node, so Node 22 must be installed and on the runner's PATH (see DEPLOY.md §Appendix).
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Matches the self-hosted runner's labels. Host mode — no Docker.
+    runs-on: [self-hosted, macos, mac-mini]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Build (needs network — fetches web fonts + copies ../assets)
+        working-directory: site
+        run: npm run build
+
+      # Host-mode only (Gitea): the runner is the local machine, so it publishes the
+      # freshly built site into a directory served by a local static server for staging.
+      # rsync --delete keeps it an exact mirror of dist/. Details: docs/INFRA-LOCAL.md.
+      # Absolute path (not ~) because the job's HOME may be a scratch dir.
+      - name: Publish to Mac Mini staging
+        working-directory: site
+        run: |
+          DEST="/Users/richardcaballero/Sites/maria-portfolio"
+          mkdir -p "$DEST"
+          rsync -a --delete dist/ "$DEST"/
+          echo "Published $(find dist -type f | wc -l | tr -d ' ') files → $DEST"
+
+      - name: Upload built site
+        # Pinned to v3: upload-artifact@v4 uses the @actions/artifact v2 client,
+        # which rejects Gitea's artifact backend as "GHES not supported". v3 uses
+        # the older API Gitea implements. (The GitHub Pages workflow is unaffected.)
+        uses: actions/upload-artifact@v3
+        with:
+          name: site-dist
+          path: site/dist
+          if-no-files-found: error

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<BaseLayout
+  title="News"
+  description="Announcements, press features, and milestones from Dr. Maria Assumpta Komugabe."
+>
+  <p class="eyebrow">News</p>
+  <h1>News &amp; Announcements</h1>
+
+  <div class="news" style="margin-top:var(--space-lg)">
+    {
+      items.map((n) => (
+        <div class="item">
+          <span class="d">{fmt(n.data.date)}</span>
+          <span>
+            {n.data.link ? <a href={n.data.link}>{n.data.title}</a> : n.data.title}
+            {n.data.description && <span style="color:var(--ink-soft)"> — {n.data.description}</span>}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

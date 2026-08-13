@@ -1,0 +1,100 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  ogType?: 'website' | 'article' | 'profile';
+}
+const { title, description, image, ogType } = Astro.props;
+
+// Nav per design/SITE-STRUCTURE.md §2. CV is a download button, not a page link.
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/research/', label: 'Research' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/teaching/', label: 'Teaching' },
+  { href: '/writings/', label: 'Writings' },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={image} ogType={ogType} />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="wordmark" href="/">Maria&nbsp;Komugabe, Ph.D.</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+        <div class="nav-group" id="primary-nav">
+          <nav aria-label="Primary">
+            {
+              nav.slice(1).map((item) => (
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+          <a class="btn cv" href="/cv/">CV</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap in">
+        <div>
+          <div class="name">MARIA KOMUGABE</div>
+          <div class="stamp" style="margin-top:8px">
+            Kampala 0.3476° N, 32.5825° E · Claremont 34.0967° N, 117.7198° W
+          </div>
+        </div>
+        <div class="stamp" style="text-align:right">
+          <a href="mailto:makomugabe@gmail.com">makomugabe@gmail.com</a><br />
+          Colophon — Fraunces · Inter · Ojuju · Plex Mono<br />
+          Ground after lubugo barkcloth, a UNESCO Buganda craft
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const group = document.getElementById('primary-nav');
+      if (toggle && group) {
+        const setOpen = (open: boolean) => {
+          group.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
+        toggle.addEventListener('click', () =>
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true'),
+        );
+        // Close on link tap (SPA-less, but tidy) and on Escape.
+        group.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') setOpen(false);
+        });
+      }
+    </script>
+  </body>
+</html>

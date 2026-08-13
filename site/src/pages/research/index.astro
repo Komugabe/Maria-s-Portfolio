@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { getCollection, render } from 'astro:content';
+
+// Research threads live in src/content/research/*.md (one file each).
+const threads = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  threads.map(async (t) => ({ ...t.data, Content: (await render(t)).Content })),
+);
+
+// Supervised research lives in src/data/supervised.yaml.
+const supervised = (await getCollection('supervised')).sort((a, b) => a.data.order - b.data.order);
+
+const pad = (n) => String(n).padStart(2, '0');
+---
+
+<BaseLayout
+  title="Research"
+  description="Four research threads: malaria mapping & supply optimization, GeoAI & geospatial deep learning, maternal & public-health analytics, and computing education in Uganda."
+>
+  <div class="page-head">
+    <p class="eyebrow">Research</p>
+    <h1>Research</h1>
+    <p class="lede">
+      Turning spatial data and AI into decision-support that moves real health
+      resources — organized in four connected threads.
+    </p>
+  </div>
+
+  {
+    rendered.map((t) => (
+      <>
+        <SectionHead num={pad(t.order)} eyebrow={t.eyebrow} title={t.title} />
+        <div class="prose">
+          <t.Content />
+          {t.impact && <p class="impact">{t.impact}</p>}
+          {t.image && (
+            <figure class="plate">
+              <img src={t.image} alt={t.imageAlt} loading="lazy" />
+              {t.imageCaption && <figcaption>{t.imageCaption}</figcaption>}
+            </figure>
+          )}
+          {t.reserved && (
+            <div class="reserved">
+              <span class="tag">Reserved · Phase 3</span>
+              <p style="margin-top:6px">
+                A live <strong>Malaria Atlas — Uganda</strong> dashboard will live here,
+                turning this research into an interactive tool.
+              </p>
+            </div>
+          )}
+          {t.links.length > 0 && (
+            <p>
+              {t.links.map((l, i) => (
+                <>
+                  {i > 0 && <Fragment>&nbsp;·&nbsp;</Fragment>}
+                  <a href={l.href}>{l.text}</a>
+                </>
+              ))}
+            </p>
+          )}
+        </div>
+      </>
+    ))
+  }
+
+  <SectionHead num={pad(rendered.length + 1)} eyebrow="Mentorship" title="Supervised Research" />
+  <div class="prose">
+    <p>
+      Across three degree levels and two universities, Maria has supervised student
+      research spanning health information systems, GeoAI, and computing education.
+    </p>
+    {
+      supervised.map((g) => (
+        <div class="sup-group">
+          <h3>{g.data.level} — {g.data.place}</h3>
+          <ul>
+            {g.data.students.map((s) => (
+              <li>
+                <strong>{s.name}</strong> <span style="color:var(--ink-soft)">({s.when})</span> — {s.topic}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    <p>
+      Maria has also advised three Harvey Mudd College Clinic teams developing computing
+      curricula for Musizi University (2023–2026) — described in the Computing Education
+      thread above.
+    </p>
+  </div>
+</BaseLayout>

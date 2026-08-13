@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Rings from '../components/Rings.astro';
+import Chevron from '../components/Chevron.astro';
+import { getCollection } from 'astro:content';
+
+const news = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const featured = (await getCollection('publications')).filter((p) => p.data.featured);
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10); // ISO stamp for the mono date device
+
+// ProfilePage/Person JSON-LD (SEO.md §B). sameAs URLs TODO — see content gaps.
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Maria Assumpta Komugabe',
+    alternateName: ['Komugabe, M. A.', 'Assumpta-Komugabe, M.'],
+    jobTitle: 'Geospatial Data Scientist, University Lecturer, Research Fellow',
+    email: 'mailto:makomugabe@gmail.com',
+    affiliation: { '@type': 'CollegeOrUniversity', name: 'Claremont Graduate University' },
+    alumniOf: { '@type': 'CollegeOrUniversity', name: 'Claremont Graduate University' },
+    identifier: 'https://orcid.org/0000-0001-5392-0300', // TODO confirm canonical ORCID (links-and-press.md)
+    // TODO add GitHub / LinkedIn once provided (content gap).
+    sameAs: [
+      'https://scholar.google.com/citations?user=8DhWmzAAAAAJ&hl=en',
+      'https://orcid.org/0000-0001-5392-0300',
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title="Dr. Maria Assumpta Komugabe"
+  description="Geospatial Data Scientist integrating AI and GIS for climate-driven malaria monitoring and healthcare supply optimization in Uganda."
+  ogType="profile"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  </Fragment>
+
+  <section class="hero">
+    <Rings class="rings" />
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">0.3476° N, 32.5825° E <span class="dim">— Kampala · Claremont</span></p>
+        <h1>Mapping malaria — and moving medicine where it's needed.</h1>
+        <p class="id-line">
+          I use AI and spatial data science to predict climate-driven disease patterns
+          and optimize healthcare delivery in low-income countries.
+        </p>
+        <p class="creds">
+          Ph.D. Information Systems &amp; Technology, CGU 2026<br />
+          Lecturer, CSU San Bernardino · Research Fellow, CGU CIST
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="/cv/">View CV</a>
+          <a class="btn ghost" href="/research/">Selected work ↓</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img
+          src="/photos/maria-komugabe-headshot.jpg"
+          alt="Portrait of Dr. Maria Assumpta Komugabe"
+          width="1086"
+          height="1448"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption class="src">Claremont, California</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {
+    featured.length > 0 && (
+      <>
+        <Chevron label="Featured research" />
+        {featured.map((p) => (
+          <article class="pub">
+            <h3>
+              <a href={`/publications/${p.id}/`}>{p.data.title}</a>
+            </h3>
+            <p class="venue">
+              {p.data.venue} · {p.data.year}
+            </p>
+          </article>
+        ))}
+      </>
+    )
+  }
+
+  <Chevron label="Recent updates" />
+  <div class="news">
+    {
+      news.map((n) => (
+        <div class="item">
+          <span class="d">{fmt(n.data.date)}</span>
+          <span>{n.data.link ? <a href={n.data.link}>{n.data.title}</a> : n.data.title}</span>
+        </div>
+      ))
+    }
+  </div>
+  <p style="margin-top:1.5rem">
+    <a href="/news/">News archive →</a>
+  </p>
+</BaseLayout>

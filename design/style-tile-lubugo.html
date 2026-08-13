@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lubugo — Design Direction B · Maria Komugabe Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Ojuju:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F5EFE4; --bone-raised:#EDE4D3; --ink:#2B211C; --ink-soft:#6B5D52;
+    --lubugo:#A85C38; --lubugo-hover:#8B4A2F; --lubugo-deep:#5C3A2E;
+    --matoke:#5C7A3B; --gold:#D9A441; --lake:#4A6B72; --grey:#8C8F8A; --wattle:#C0392B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bone);color:var(--ink);font-family:'Inter',sans-serif;font-size:16.5px;line-height:1.65;position:relative}
+  /* barkcloth grain over everything, felt not seen */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+  .wrap{max-width:1040px;margin:0 auto;position:relative;z-index:1}
+  .pad{padding:44px 56px}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.12}
+  h1{font-size:clamp(2.2rem,4.6vw,3.4rem);letter-spacing:-.01em}
+  a{color:var(--lubugo-hover)} a:hover{color:var(--lubugo-deep)}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lubugo-hover)}
+  .eyebrow .dim{color:var(--ink-soft)}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .numeral{font-family:'Ojuju',sans-serif;font-weight:700;font-size:3.4rem;color:var(--lubugo);line-height:1}
+  .caption{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-soft);font-size:1rem}
+  /* chevron divider — single row, the only pattern allowed */
+  .chevron{height:12px;margin:52px 0 40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 12 L6 2 L12 12' fill='none' stroke='%23A85C38' stroke-width='1.6'/%3E%3Cpath d='M12 12 L18 2 L24 12' fill='none' stroke='%23C89A6B' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center}
+  .chevlab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-soft);text-transform:uppercase;text-align:center;margin-top:-30px;margin-bottom:34px;background:var(--bone);display:table;padding:0 14px;margin-left:auto;margin-right:auto}
+  /* hero */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--grey)}
+  .rings{position:absolute;right:-140px;top:-140px;width:560px;height:560px;opacity:.5}
+  .hero-inner{position:relative;padding:72px 56px 60px;display:grid;grid-template-columns:1.45fr 1fr;gap:44px;align-items:center}
+  .id-line{font-family:'Fraunces',serif;font-weight:350;font-size:1.15rem;color:var(--ink-soft);margin-top:18px;max-width:44ch}
+  .creds{margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);line-height:1.9;letter-spacing:.04em}
+  .btn{display:inline-block;margin-top:26px;background:var(--lubugo);color:var(--bone);font-weight:600;font-size:.9rem;padding:12px 24px;text-decoration:none;border-radius:2px}
+  .btn.gold{background:transparent;color:var(--ink);border:1.5px solid var(--gold);margin-left:10px}
+  .portrait{background:var(--bone-raised);border:1px solid var(--grey);padding:14px;position:relative}
+  .portrait .ph{height:250px;background:
+     radial-gradient(circle at 62% 30%, #D9A441 0 8%, transparent 8.5%),
+     linear-gradient(160deg,#8C8F8A 0%,#6E7276 45%,#4A4E52 100%)}
+  .portrait .cap{margin-top:10px}
+  .portrait .src{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-soft);margin-top:4px;letter-spacing:.06em}
+  /* nav */
+  .navmock{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--grey);padding:14px 22px;margin-top:24px;background:var(--bone)}
+  .navmock .wm{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem}
+  .navmock ul{display:flex;gap:22px;list-style:none;font-size:.86rem;font-weight:500}
+  .navmock li.active{color:var(--lubugo-hover);border-bottom:2px solid var(--lubugo);padding-bottom:2px}
+  .navmock .cv{background:var(--lubugo);color:var(--bone);padding:7px 14px;font-size:.8rem;font-weight:600;border-radius:2px}
+  /* swatches */
+  .swgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:26px}
+  .sw{border:1px solid var(--grey);background:var(--bone)}
+  .sw .chip{height:64px}
+  .sw .meta{padding:8px 10px}
+  .sw .meta b{display:block;font-size:.8rem;font-weight:600}
+  .sw .meta span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft)}
+  .prop{display:flex;height:26px;border:1px solid var(--ink);margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--bone)}
+  .prop div{display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap}
+  .proplab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ink-soft);margin-top:6px;text-transform:uppercase}
+  /* type spec */
+  .spec{display:grid;grid-template-columns:190px 1fr;gap:6px 26px;margin-top:24px;align-items:baseline}
+  .spec .role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding-top:6px}
+  .spec .sample{border-bottom:1px dashed var(--grey);padding-bottom:14px;margin-bottom:8px}
+  /* pub + news */
+  .pub{border-left:3px solid var(--lubugo);padding:4px 0 4px 20px;margin-top:24px}
+  .pub h3{font-size:1.18rem}
+  .pub .authors{font-size:.9rem;margin-top:4px}
+  .pub .venue{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em}
+  .pub .plain{font-size:.94rem;color:var(--ink-soft);margin-top:8px;max-width:70ch}
+  .pub .links{margin-top:10px;display:flex;gap:8px}
+  .pub .links a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;border:1px solid var(--lubugo);padding:4px 10px;text-decoration:none;border-radius:2px}
+  .news{margin-top:20px;display:grid;gap:12px}
+  .news .item{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:baseline}
+  .news .d{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--lubugo-hover)}
+  /* legend chips */
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .chip-l{display:flex;align-items:center;gap:8px;border:1px solid var(--grey);padding:6px 12px;font-size:.82rem;background:var(--bone);border-radius:2px}
+  .chip-l i{width:12px;height:12px;display:inline-block;border-radius:50%}
+  /* section numeral demo */
+  .secdemo{display:flex;gap:26px;align-items:flex-start;margin-top:24px}
+  /* photography treatment */
+  .photos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:22px}
+  .photos .p{height:150px;border:1px solid var(--grey)}
+  .p1{background:linear-gradient(135deg,#C0392B 0%,#D9A441 30%,#5C7A3B 60%,#4A6B72 100%)}
+  .p2{background:linear-gradient(135deg,#2B211C 0%,#6B5D52 50%,#F5EFE4 100%)}
+  .p3{background:repeating-linear-gradient(45deg,#EDE4D3 0 12px,#E2D5BE 12px 24px)}
+  .photos .lab{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-top:6px}
+  /* dark footer band */
+  .footband{background:var(--lubugo-deep);color:#EFE6D6;padding:40px 56px;position:relative;overflow:hidden}
+  .footband::before{content:"";position:absolute;inset:0;opacity:.1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .footband .in{position:relative;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .footband .name{font-family:'Ojuju',sans-serif;font-weight:500;font-size:1.5rem;letter-spacing:.02em}
+  .footband .stamp{font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.9;color:#CBB89A;letter-spacing:.06em}
+  .crane-note{font-family:'Fraunces',serif;font-style:italic;color:#CBB89A;font-size:.95rem;max-width:34ch}
+  @media(max-width:860px){.hero-inner{grid-template-columns:1fr}.pad{padding:32px 24px}.footband{padding:32px 24px}.photos{grid-template-columns:1fr}.spec{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <svg class="rings" viewBox="0 0 560 560" fill="none">
+      <circle cx="290" cy="270" r="60"  stroke="#A85C38" stroke-width="1.1"/>
+      <circle cx="283" cy="277" r="102" stroke="#A85C38" stroke-width="1"/>
+      <circle cx="292" cy="268" r="146" stroke="#A85C38" stroke-width="1"/>
+      <circle cx="280" cy="280" r="192" stroke="#C89A6B" stroke-width="1"/>
+      <circle cx="288" cy="272" r="238" stroke="#C89A6B" stroke-width=".9"/>
+      <circle cx="284" cy="276" r="270" stroke="#C89A6B" stroke-width=".8" stroke-dasharray="3 6"/>
+    </svg>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Lubugo · Design Direction B <span class="dim">— beaten bark, measured land</span></div>
+        <h1 style="margin-top:14px">Maria Komugabe maps malaria — and moves medicine where it's needed.</h1>
+        <p class="id-line">I use AI and spatial data science to predict climate-driven disease patterns and optimize healthcare delivery in low-income countries.</p>
+        <div class="creds">PH.D. INFORMATION SYSTEMS &amp; TECHNOLOGY · CGU 2026<br>LECTURER, CSU SAN BERNARDINO · RESEARCH FELLOW, CGU CIST</div>
+        <a class="btn" href="#">Download CV</a><a class="btn gold" href="#">Selected work ↓</a>
+      </div>
+      <div class="portrait">
+        <div class="ph"></div>
+        <div class="cap caption">Portraits and field photography carry all the site's saturation — shown true-color on the calm bone ground.</div>
+        <div class="src">PHOTO: ASSETS/PHOTOS/WEB/MARIA-KOMUGABE-HEADSHOT.JPG</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="eyebrow">Navigation <span class="dim">— identical IA to Direction A</span></div>
+    <div class="navmock">
+      <span class="wm">Maria Komugabe, Ph.D.</span>
+      <ul><li class="active">Home</li><li>Research</li><li>Publications</li><li>Teaching</li><li>Writings</li><li>About</li></ul>
+      <span class="cv">CV ↓</span>
+    </div>
+
+    <div class="chevron"></div><div class="chevlab">Basket chevron — the only pattern, one row tall</div>
+
+    <!-- ============ PALETTE ============ -->
+    <div class="eyebrow">Palette <span class="dim">— material, not symbol: bark, laterite, matoke, crane</span></div>
+    <div class="swgrid">
+      <div class="sw"><div class="chip" style="background:#F5EFE4;border-bottom:1px solid #8C8F8A"></div><div class="meta"><b>Bone</b><span>#F5EFE4 · royal-barkcloth cream</span></div></div>
+      <div class="sw"><div class="chip" style="background:#EDE4D3"></div><div class="meta"><b>Bone raised</b><span>#EDE4D3 · cards</span></div></div>
+      <div class="sw"><div class="chip" style="background:#2B211C"></div><div class="meta"><b>Bark ink</b><span>#2B211C · muzuukizi black</span></div></div>
+      <div class="sw"><div class="chip" style="background:#A85C38"></div><div class="meta"><b>Lubugo</b><span>#A85C38 · the accent</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5C3A2E"></div><div class="meta"><b>Lubugo deep</b><span>#5C3A2E · footer band</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5C7A3B"></div><div class="meta"><b>Matoke</b><span>#5C7A3B · tags, viz #2</span></div></div>
+      <div class="sw"><div class="chip" style="background:#D9A441"></div><div class="meta"><b>Crane gold</b><span>#D9A441 · 1% — one highlight</span></div></div>
+      <div class="sw"><div class="chip" style="background:#4A6B72"></div><div class="meta"><b>Lake</b><span>#4A6B72 · map foil</span></div></div>
+      <div class="sw"><div class="chip" style="background:#8C8F8A"></div><div class="meta"><b>Crane grey</b><span>#8C8F8A · hairlines</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C0392B"></div><div class="meta"><b>Wattle</b><span>#C0392B · micro-accent</span></div></div>
+    </div>
+    <div class="prop">
+      <div style="width:60%;background:#F5EFE4;color:#6B5D52;border-right:1px solid #8C8F8A">BONE 60</div>
+      <div style="width:25%;background:#2B211C">INK 25</div>
+      <div style="width:10%;background:#A85C38">LUBUGO 10</div>
+      <div style="width:4%;background:#5C7A3B">4</div>
+      <div style="width:1.5%;background:#D9A441"></div>
+    </div>
+    <div class="proplab">The 60 / 25 / 10 / 4 / 1 proportion rule — gold is always the rarest thing on screen</div>
+
+    <div class="chevron"></div><div class="chevlab">Typography</div>
+
+    <!-- ============ TYPE ============ -->
+    <div class="spec">
+      <div class="role">Display · Fraunces</div>
+      <div class="sample"><span style="font-family:'Fraunces',serif;font-size:2rem;font-weight:600">Beaten bark, measured land</span></div>
+      <div class="role">Numerals · Ojuju</div>
+      <div class="sample">
+        <div class="secdemo">
+          <span class="numeral">01</span>
+          <div><b style="font-family:'Fraunces',serif;font-size:1.2rem">Malaria Mapping &amp; Supply Optimization</b><br><span style="font-size:.9rem;color:var(--ink-soft)">Afro-grotesque by Chisaokwu Joboson (Nigeria) — used in exactly one role: section numerals.</span></div>
+        </div>
+      </div>
+      <div class="role">Body · Inter</div>
+      <div class="sample">Lubugo is beaten from the inner bark of the mutuba tree — a UNESCO-recognized Buganda craft. Its russet, felted surface is this site's ground; the precision ink on top of it is hers.</div>
+      <div class="role">Data · IBM Plex Mono</div>
+      <div class="sample mono" style="font-size:.9rem">0.3476° N, 32.5825° E · KAMPALA — R² = 0.88 · 146 DISTRICTS · 2020→2024</div>
+      <div class="role">Captions · Fraunces It.</div>
+      <div class="sample caption">Ground texture derived from lubugo barkcloth; ring motif after the concentric structure of coiled basketry and spatial buffer analysis.</div>
+    </div>
+
+    <div class="chevron"></div><div class="chevlab">Components</div>
+
+    <!-- ============ PUB ============ -->
+    <div class="eyebrow">Publication entry</div>
+    <div class="pub">
+      <h3>Geospatial Mapping of Malaria Commodity Mismatches for Targeted Redistribution Hotspot Identification in Uganda</h3>
+      <div class="authors"><b>Komugabe, M. A.</b>, Shabtai, I., Kizito, M., Kong, S., &amp; Caballero, R.</div>
+      <div class="venue">JOURNAL OF GEOGRAPHIC INFORMATION SYSTEM · 18(3), 143–160 · 2026 · OPEN ACCESS</div>
+      <p class="plain">Five years of weekly surveillance data reveal a tenfold gap between diagnostic-test and treatment shortages — and where AI-guided redistribution would close it.</p>
+      <div class="links"><a href="#">PDF</a><a href="#">DOI</a><a href="#">DATA</a></div>
+    </div>
+
+    <!-- ============ NEWS ============ -->
+    <div class="eyebrow" style="margin-top:40px">Recent updates</div>
+    <div class="news">
+      <div class="item"><span class="d">2026-06-03</span><span>New paper in <i>JGIS</i>: mapping malaria commodity mismatches for targeted redistribution in Uganda. <a href="#">DOI</a></span></div>
+      <div class="item"><span class="d">2026-05-16</span><span>Ph.D. conferred at Claremont Graduate University — honored to serve as CIST banner bearer. <a href="#">Program</a></span></div>
+    </div>
+
+    <!-- ============ TAGS ============ -->
+    <div class="eyebrow" style="margin-top:40px">Legend tags <span class="dim">— data-viz palette carries the identity too</span></div>
+    <div class="legend">
+      <span class="chip-l"><i style="background:#A85C38"></i>Spatial Analytics &amp; GeoAI</span>
+      <span class="chip-l"><i style="background:#5C7A3B"></i>Healthcare Informatics</span>
+      <span class="chip-l"><i style="background:#4A6B72"></i>Responsible AI</span>
+      <span class="chip-l"><i style="background:#D9A441"></i>Pedagogy</span>
+    </div>
+
+    <!-- ============ PHOTO TREATMENT ============ -->
+    <div class="eyebrow" style="margin-top:44px">Photography treatment</div>
+    <div class="photos">
+      <div><div class="p p1"></div><div class="lab">Hero / portraits — true color, full saturation</div></div>
+      <div><div class="p p2"></div><div class="lab">Secondary imagery — bark-ink duotone</div></div>
+      <div><div class="p p3"></div><div class="lab">Never: pattern wallpaper, safari grading</div></div>
+    </div>
+
+  </div>
+
+  <!-- ============ FOOTER BAND ============ -->
+  <div class="footband">
+    <div class="in">
+      <div>
+        <div class="name">MARIA KOMUGABE</div>
+        <div class="stamp" style="margin-top:8px">KAMPALA 0.3476° N, 32.5825° E · CLAREMONT 34.0967° N, 117.7198° W</div>
+      </div>
+      <div class="crane-note">"The crested crane's raised leg signifies a nation moving forward." — one sentence of heritage, placed once.</div>
+      <div class="stamp" style="text-align:right">COLOPHON<br>FRAUNCES · INTER · OJUJU · PLEX MONO<br>GROUND AFTER LUBUGO BARKCLOTH (UNESCO)</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

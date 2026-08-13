@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import Gallery from '../../components/Gallery.astro';
+import { getEntry, render } from 'astro:content';
+import about from '../../data/about.yaml';
+
+// Bio prose: src/content/pages/about-bio.md · lists: src/data/about.yaml
+const { Content: Bio } = await render(await getEntry('pages', 'about-bio'));
+---
+
+<BaseLayout
+  title="About"
+  description="The journey of Dr. Maria Assumpta Komugabe — from lecturer in Uganda to Claremont Graduate University Ph.D. and geospatial data scientist — with honors, press, and a photo gallery."
+>
+  <div class="page-head">
+    <p class="eyebrow">About</p>
+    <h1>About Maria</h1>
+    <p class="lede">{about.lede}</p>
+  </div>
+
+  <div class="prose">
+    <Bio />
+  </div>
+
+  <SectionHead num="01" eyebrow="Positions" title="Academic Appointments" />
+  <div class="prose">
+    {about.appointments.map((a) => (
+      <div class="cv-entry">
+        <div class="role">{a.role}</div>
+        <div class="meta">{a.org} · {a.dates}</div>
+      </div>
+    ))}
+  </div>
+
+  <SectionHead num="02" eyebrow="Degrees" title="Education" />
+  <div class="prose">
+    {about.education.map((e) => (
+      <div class="cv-entry">
+        <div class="role">{e.degree}</div>
+        <div class="meta">{e.detail}</div>
+      </div>
+    ))}
+  </div>
+
+  <SectionHead num="03" eyebrow="Recognition" title="Honors & Press" />
+  <div class="prose">
+    <ul>
+      {about.press.map((p) => (
+        <li>
+          <strong>{p.year}</strong> — {p.url ? <a href={p.url}>{p.text}</a> : p.text}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <SectionHead num="04" eyebrow="Selected images" title="Gallery" />
+  <Gallery photos={about.gallery} />
+
+  <SectionHead num="05" eyebrow="Get in touch" title="Contact" />
+  <div class="prose">
+    <p>
+      Reach Maria by email at <a href="mailto:makomugabe@gmail.com">makomugabe@gmail.com</a>, or find
+      her work on the profiles below.
+    </p>
+    <div class="linkrow">
+      <a href="mailto:makomugabe@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=8DhWmzAAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://orcid.org/0000-0001-5392-0300">ORCID</a>
+    </div>
+  </div>
+</BaseLayout>

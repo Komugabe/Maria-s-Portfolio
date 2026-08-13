@@ -1,0 +1,48 @@
+# Supervised research, grouped by degree level. Shown on the Research page.
+# To add a student: copy an existing "- name / when / topic" block into the right
+# group and change the three lines. Keep the dashes and indentation exactly.
+
+doctoral:
+  order: 1
+  level: Doctoral
+  place: Claremont Graduate University
+  students:
+    - name: Raynah Wanjiku Kamau-Logan
+      when: "Ph.D. candidate · 2026"
+      topic: "Strategic Adoption of Generative GeoAI at Esri: A Multi-Tier Approach"
+
+masters:
+  order: 2
+  level: Master's
+  place: University of Kisubi, Uganda
+  students:
+    - name: Kimbugwe Josiah
+      when: "2021"
+      topic: "A real-time web-based prisoners' information access system in Uganda — Luzira Maximum Security Prison"
+    - name: Ssamula Dennis
+      when: "2021"
+      topic: "A real-time web-based boda-boda tracking system — selected police stations, Kajjansi Town Council"
+    - name: Akulu Stella
+      when: "2022"
+      topic: "Integrating ICT in the teaching and learning of economics in selected secondary schools, Gulu City, Uganda"
+
+undergraduate:
+  order: 3
+  level: Undergraduate
+  place: University of Kisubi, Uganda
+  students:
+    - name: Tumwesigye Hillary
+      when: "2026"
+      topic: "A maternal-health tracking app for ANC–PNC monitoring"
+    - name: Damulira Levison
+      when: "2021"
+      topic: "A web-based car rental system — Kwewaayo Car Rental Services, Uganda"
+    - name: Kulume Mary
+      when: "2021"
+      topic: "Clinic management system"
+    - name: Mwambala Rogers
+      when: "2021"
+      topic: "School information system — Kitala Secondary School"
+    - name: Nanyonjo Caroline
+      when: "2021"
+      topic: "Teachers' motivation and students' academic performance in economics — Katabi, Wakiso District"

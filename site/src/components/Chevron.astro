@@ -1,0 +1,10 @@
+---
+// Basket-chevron divider — the only pattern on the site, one row tall
+// (DESIGN-lubugo.md §4.3). Optional centered mono label.
+interface Props {
+  label?: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="chevron" role="separator" data-label={label} aria-hidden="true"></div>

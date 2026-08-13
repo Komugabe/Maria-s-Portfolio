@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Writings"
+  description="Research updates, method write-ups, and notes from the field by Dr. Maria Assumpta Komugabe."
+>
+  <div class="page-head">
+    <p class="eyebrow">Writings</p>
+    <h1>Writings</h1>
+    <p class="lede">Short, occasional write-ups on method, fieldwork, and turning spatial data into health decisions.</p>
+  </div>
+
+  <div class="news">
+    {
+      posts.map((post) => (
+        <div class="item">
+          <time datetime={post.data.pubDate.toISOString()} class="d">
+            {post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'medium', timeZone: 'UTC' })}
+          </time>
+          <span>
+            <a href={`/writings/${post.id}/`}>{post.data.title}</a>
+            <br />
+            <span style="color:var(--ink-soft)">{post.data.description}</span>
+          </span>
+        </div>
+      ))
+    }
+  </div>
+
+  <SectionHead num="—" title="Elsewhere" />
+  <div class="prose">
+    <ul>
+      <li>
+        <a href="https://nilepost.co.ug/opinions/194014/will-ai-take-your-job">"Will AI take your job?"</a> — opinion, <em>Nile Post</em> (Apr 2024).
+      </li>
+    </ul>
+  </div>
+</BaseLayout>

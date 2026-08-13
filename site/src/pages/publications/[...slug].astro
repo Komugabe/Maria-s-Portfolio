@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CitationMeta from '../../components/CitationMeta.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pubs = await getCollection('publications');
+  return pubs.map((pub) => ({ params: { slug: pub.id }, props: { pub } }));
+}
+
+const { pub } = Astro.props;
+const { data } = pub;
+const { Content } = await render(pub);
+
+const doiURL = data.doi ? `https://doi.org/${data.doi}` : undefined;
+
+// ScholarlyArticle JSON-LD (SEO.md §B). Self-canonical page; DOI is the outbound sameAs.
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  headline: data.title,
+  name: data.title,
+  author: data.authors.map((name) => ({ '@type': 'Person', name })),
+  datePublished: data.date ? data.date.toISOString().slice(0, 10) : String(data.year),
+  isPartOf: { '@type': 'Periodical', name: data.venue },
+  ...(doiURL ? { identifier: doiURL, sameAs: doiURL } : {}),
+  url: new URL(`/publications/${pub.id}/`, Astro.site).href,
+};
+---
+
+<BaseLayout title={data.title} description={data.abstract ?? data.title} ogType="article">
+  <Fragment slot="head">
+    <CitationMeta pub={data} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+  </Fragment>
+
+  <p class="eyebrow">{data.venueType} · {data.year}</p>
+  <h1>{data.title}</h1>
+  <p class="authors"><strong>{data.authors.join('; ')}</strong></p>
+  <p class="venue">
+    {data.venue}{data.volume && `, ${data.volume}`}{
+      data.firstPage && `, ${data.firstPage}–${data.lastPage ?? ''}`
+    }
+  </p>
+
+  <div class="chips">
+    {data.pdf && <a href={data.pdf}>PDF</a>}
+    {doiURL && <a href={doiURL}>DOI</a>}
+  </div>
+
+  {data.abstract && (
+    <section>
+      <h2>Abstract</h2>
+      <p>{data.abstract}</p>
+    </section>
+  )}
+
+  <Content />
+</BaseLayout>
