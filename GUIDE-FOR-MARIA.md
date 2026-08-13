@@ -272,4 +272,48 @@ always returns things to how they were — and you can always ask Richard.
 
 ---
 
+## 11. Appendix: Publishing the site (one-time setup, owner only)
+
+You only do this **once**. After it's set up, everything above "just works" — every edit auto-publishes.
+These steps need the repository **owner** (that's you, Maria), because they're under **Settings**.
+
+### Step 1 — Turn on GitHub Pages (do this now)
+
+1. Go to your repository on GitHub → **Settings** (top menu bar).
+2. In the left sidebar, click **Pages**.
+3. Under **Build and deployment → Source**, choose **"GitHub Actions."**
+
+That's it. The site will build and publish automatically from now on. You can watch it happen in the
+**Actions** tab (green ✓ = published).
+
+*(Optional: to let Richard help with Settings-level tasks, go to **Settings → Collaborators and teams**,
+find `richc117`, and set the role to **Admin**.)*
+
+### Step 2 — Connect your web address (later, once you buy the domain)
+
+Do this after you've purchased **`mariakomugabe.com`** from a domain registrar (Namecheap, GoDaddy,
+Cloudflare, Google Domains — any of them).
+
+1. In your repo → **Settings → Pages → Custom domain**, type **`mariakomugabe.com`** and click **Save**.
+2. At your registrar's **DNS settings**, add these records exactly:
+
+   | Type | Name / Host | Value |
+   |------|-------------|-------|
+   | A | `@` (or leave blank) | `185.199.108.153` |
+   | A | `@` | `185.199.109.153` |
+   | A | `@` | `185.199.110.153` |
+   | A | `@` | `185.199.111.153` |
+   | CNAME | `www` | `Komugabe.github.io` |
+
+3. Wait for it to connect — usually a few minutes, sometimes up to a few hours. Back in
+   **Settings → Pages**, once it shows a green check, tick **"Enforce HTTPS."**
+
+Your site is then live at **`https://mariakomugabe.com`**. No code changes are needed — the site is
+already configured for that address.
+
+> The DNS step is the one fiddly part. If anything looks confusing, send Richard a screenshot of your
+> registrar's DNS page and he can guide you.
+
+---
+
 *Questions or something not covered here? Ask Richard — and this guide can always be expanded.*
