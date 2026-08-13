@@ -18,8 +18,13 @@ actions** for the repo/Pages owner.
 ## 1. Already configured
 
 - `.github/workflows/deploy.yml` — build + deploy to Pages (Node 22).
-- `site/public/CNAME` — custom domain.
 - Static build verified: `cd site && npm run build` → flat static `dist/` (23 pages).
+
+> **Interim state (no domain yet):** `site/public/CNAME` has been **removed** so the site serves at the
+> root of the GitHub user-pages URL — `https://komugabe.github.io/` — for previewing before the domain
+> is purchased. This requires the repo to be named **`Komugabe.github.io`** (a user-pages repo serves at
+> root; a project repo would serve at a subpath and break the hardcoded `/…` asset paths).
+> **When the domain goes live:** recreate `site/public/CNAME` containing `mariakomugabe.com`, then do §4.
 
 ## 2. Push to GitHub
 
