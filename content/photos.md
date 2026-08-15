@@ -21,6 +21,7 @@ Originals in `assets/photos/originals/` (full resolution, EXIF intact). Web-read
 | `2025-10-24_classroom-presentation-2.jpg` | Presenting dissertation research, second angle, Oct 2025. |
 | `2023-07-10_cgu-booth-gis-conference.jpg` | Maria at the Claremont Graduate University booth at a GIS conference expo, July 2023. |
 | `2026_7cs-international-student-graduation-speaker.jpg` | Maria delivering remarks as a student speaker representing Claremont Graduate University at the 7Cs International Student Graduation, 2026. |
+|`2026-05-16_cgu-phd-hooding-ceremony.jpg` | Maria during her Ph.D. hooding at Claremont Graduate University, celebrating the conferral of her doctoral degree, May 16, 2026. |
 
 ## Harvey Mudd / Musizi University Partnership
 
