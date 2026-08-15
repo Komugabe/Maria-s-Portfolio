@@ -20,6 +20,7 @@ Originals in `assets/photos/originals/` (full resolution, EXIF intact). Web-read
 | `2025-10-24_classroom-presentation-1.jpg` | Presenting dissertation research (AI + GIS malaria monitoring) to a seminar audience, Oct 2025. |
 | `2025-10-24_classroom-presentation-2.jpg` | Presenting dissertation research, second angle, Oct 2025. |
 | `2023-07-10_cgu-booth-gis-conference.jpg` | Maria at the Claremont Graduate University booth at a GIS conference expo, July 2023. |
+| `2026-7cs-international-student-graduation.jpg` | Maria delivering remarks as a student speaker representing Claremont Graduate University (CGU) at the 7Cs International Student Graduation, 2026. |
 
 ## Harvey Mudd / Musizi University Partnership
 
