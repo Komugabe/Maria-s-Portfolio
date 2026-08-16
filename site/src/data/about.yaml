@@ -57,7 +57,6 @@ press:
 
 # Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
 gallery:
- gallery:
   - src: "2026-05-16_cgu-commencement-banner-bearer.jpg"
     caption: "CGU Commencement, May 16 2026 — Ph.D. conferred; carrying the CIST department banner."
 
