@@ -58,7 +58,7 @@ press:
 # Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
 gallery:
   - src: "2026-05-16_cgu-commencement-banner-bearer.jpg"
-    caption: "CGU Commencement, May 16 2026 — Ph.D. conferred; carrying the CIST department banner."
+    caption: "CGU Commencement, May 16, 2026 — Ph.D. conferred; carrying the CIST department banner."
 
   - src: "2025-05-05_dissertation-proposal-defense.jpg"
     caption: "With her dissertation committee after the proposal defense, CGU, May 2025."
@@ -81,7 +81,7 @@ gallery:
   - src: "2025-02-22_portrait-traditional-dress.jpg"
     caption: "Portrait in traditional dress, Feb 2025."
 
-   - src: "2026-05-16_cgu-phd-hooding.jpg"
+  - src: "2026-05-16_cgu-phd-hooding.jpg"
     caption: "Maria during her Ph.D. hooding at Claremont Graduate University, May 16, 2026."
 
   - src: "2026-7cs-international-student-graduation.jpg"
@@ -91,5 +91,4 @@ gallery:
     caption: "Maria following the successful defense of her Ph.D. dissertation at Claremont Graduate University, March 6, 2026."
 
   - src: "2026-03-10_esri-developer-technology-summit-student-assistant.jpeg"
-    caption: "Maria serving as a Student Assistant at the Esri Developer & Technology Summit, March 10–13, 2026." 
- 
+    caption: "Maria serving as a Student Assistant at the Esri Developer & Technology Summit, March 10–13, 2026."
