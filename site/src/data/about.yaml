@@ -57,28 +57,36 @@ press:
 
 # Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
 gallery:
+ gallery:
   - src: "2026-05-16_cgu-commencement-banner-bearer.jpg"
     caption: "CGU Commencement, May 16 2026 — Ph.D. conferred; carrying the CIST department banner."
+
   - src: "2025-05-05_dissertation-proposal-defense.jpg"
     caption: "With her dissertation committee after the proposal defense, CGU, May 2025."
+
   - src: "2024-11-08_jhu-malaria-symposium-poster-1.jpg"
     caption: "At the 10th Future of Malaria Research Symposium, Johns Hopkins, Nov 2024."
+
   - src: "2024-04-30_hmc-poster-session.jpg"
     caption: "Presenting the Musizi curricula poster with the HMC Clinic team, Apr 2024."
+
   - src: "2023_kisubi-award-of-appreciation.jpg"
     caption: "University of Kisubi Award of Appreciation for IT skilling service."
+
   - src: "2024-01-02_uganda-equator-landmark.jpg"
     caption: "At the Uganda Equator monument, Jan 2024."
+
   - src: "2023-02-24_uganda-cultural-exhibit.jpg"
     caption: "Sharing Ugandan culture at a cultural exhibit, Feb 2023."
+
   - src: "2025-02-22_portrait-traditional-dress.jpg"
     caption: "Portrait in traditional dress, Feb 2025."
-    - src: "2026-05-16_cgu-phd-hooding-ceremony.jpg"
-    caption: "Ph.D. Hooding Ceremony at Claremont Graduate University, May 2026."
-  gallery:
- - src: "2026-7cs-international-student-graduation.jpg"
-  caption: "Maria delivering remarks as a student speaker representing Claremont Graduate University at the 7Cs International Student Graduation, 2026."
- - src: "2026-05-16_cgu-commencement-banner-bearer.jpg"
-  caption: "CGU Commencement, May 16 2026 — Ph.D. conferred; carrying the CIST department banner."
- - src: "2026-03-06_cgu-phd-dissertation-defense.jpg"
-  caption: "Maria following the successful defense of her Ph.D. dissertation at Claremont Graduate University, March 6, 2026."
+
+  - src: "2026-05-16_cgu-phd-hooding.jpg"
+    caption: "Maria during her Ph.D. hooding at Claremont Graduate University, May 16, 2026."
+
+  - src: "2026-7cs-international-student-graduation.jpg"
+    caption: "Maria delivering remarks as a student speaker representing Claremont Graduate University at the 7Cs International Student Graduation, 2026."
+
+  - src: "2026-03-06_cgu-phd-dissertation-defense.jpg"
+    caption: "Maria following the successful defense of her Ph.D. dissertation at Claremont Graduate University, March 6, 2026."
