@@ -36,18 +36,6 @@ jobs:
         working-directory: site
         run: npm run build
 
-      # Host-mode only (Gitea): the runner is the local machine, so it publishes the
-      # freshly built site into a directory served by a local static server for staging.
-      # rsync --delete keeps it an exact mirror of dist/. Details: docs/INFRA-LOCAL.md.
-      # Absolute path (not ~) because the job's HOME may be a scratch dir.
-      - name: Publish to Mac Mini staging
-        working-directory: site
-        run: |
-          DEST="/Users/richardcaballero/Sites/maria-portfolio"
-          mkdir -p "$DEST"
-          rsync -a --delete dist/ "$DEST"/
-          echo "Published $(find dist -type f | wc -l | tr -d ' ') files → $DEST"
-
       - name: Upload built site
         # Pinned to v3: upload-artifact@v4 uses the @actions/artifact v2 client,
         # which rejects Gitea's artifact backend as "GHES not supported". v3 uses
