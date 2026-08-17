@@ -58,7 +58,7 @@ press:
 # Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
 gallery:
   # 2026 — Professional engagement and doctoral milestones
-  - src: "2026-07-13_esri-user-conference-cgu-exhibitor.jpg"
+  - src: "2026-07-13_esri-user-conference-cgu-exhibitor.jpeg"
     caption: "Maria representing Claremont Graduate University as an exhibitor at the 2026 Esri User Conference in San Diego, California, July 13–17, 2026."
 
   - src: "2026-05-16_cgu-phd-hooding.jpg"
@@ -96,10 +96,10 @@ gallery:
   - src: "2025-03-16_united-to-beat-malaria-leadership-summit.jpg"
     caption: "Maria participating in the United to Beat Malaria Leadership Summit in Washington, D.C., March 16–18, 2025, supporting advocacy efforts to end malaria."
 
-  - src: "2025-03-06_scale22x-southern-california-linux-expo.jpg"
+  - src: "2025-03-06_scale22x-southern-california-linux-expo.jpeg"
     caption: "Maria attending SCaLE 22x, the Southern California Linux Expo, engaging with the open-source and free software community."
 
-  - src: "2025-03-06_scale22x-cgu-alumni-engagement.jpg"
+  - src: "2025-03-06_scale22x-cgu-alumni-engagement.jpeg"
     caption: "Maria connecting with fellow Claremont Graduate University alumni at SCaLE 22x, the Southern California Linux Expo."
 
   - src: "2025-02-22_portrait-traditional-dress.jpg"
@@ -124,7 +124,7 @@ gallery:
   - src: "2023-11-21_yusen-terminals-la-port-class-tour.jpg"
     caption: "Maria participating in a class tour of Yusen Terminals at the Port of Los Angeles, connecting classroom learning with real-world logistics and port operations, November 21, 2023."
 
-  - src: "2023_esri-user-conference-cgu-student-ambassador.jpg"
+  - src: "2023_esri-user-conference-cgu-student-ambassador.jpeg"
     caption: "Maria serving as a Student Ambassador representing the Claremont Graduate University GIS program at the 2023 Esri User Conference in San Diego."
 
   - src: "2023_esri-user-conference-jack-dangermond.jpg"
