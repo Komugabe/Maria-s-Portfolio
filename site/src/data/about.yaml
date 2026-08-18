@@ -57,9 +57,13 @@ press:
 
 # Photo gallery. "src" is a file in assets/photos/web/ (write it as /photos/NAME).
 gallery:
-  # 2026 — Professional engagement and doctoral milestones
+
+  # 2026 — Doctoral milestones, GIS leadership, and professional engagement
   - src: "2026-07-13_esri-user-conference-cgu-exhibitor.jpeg"
     caption: "Maria representing Claremont Graduate University as an exhibitor at the 2026 Esri User Conference in San Diego, California, July 13–17, 2026."
+
+  - src: "2026-05-16_cgu-phd-graduation.jpg"
+    caption: "Maria celebrating the conferral of her Ph.D. at Claremont Graduate University Commencement, May 16, 2026."
 
   - src: "2026-05-16_cgu-phd-hooding.jpg"
     caption: "Maria during her Ph.D. hooding at Claremont Graduate University, May 16, 2026."
@@ -70,14 +74,20 @@ gallery:
   - src: "2026-7cs-international-student-graduation.jpeg"
     caption: "Maria delivering remarks as a student speaker representing Claremont Graduate University at the 7Cs International Student Graduation, 2026."
 
+  - src: "2026_harvey-mudd-clinic-day-musizi.jpg"
+    caption: "Maria representing Musizi at Harvey Mudd College Clinic Day in 2026, celebrating the project with the student team and collaborators."
+
   - src: "Student_Assistant_esri.jpeg"
     caption: "Maria serving as a Student Assistant at the Esri Developer & Technology Summit, March 10–13, 2026."
+
+  - src: "2026-03-06_cgu-phd-dissertation-defense-presentation.jpg"
+    caption: "Maria defending her Ph.D. dissertation at Claremont Graduate University in Burkle 16, March 6, 2026."
 
   - src: "Maria's defence-2026-03-06.jpg"
     caption: "Maria following the successful defense of her Ph.D. dissertation at Claremont Graduate University, March 6, 2026."
 
 
-  # 2025 — Leadership, honors, conferences, and research
+  # 2025 — Leadership, honors, research, conferences, and advocacy
   - src: "2025-10_cgu-centennial-celebration.jpg"
     caption: "Maria attending Claremont Graduate University’s Centennial Celebration, marking 100 years of the university, October 2025."
 
@@ -89,6 +99,9 @@ gallery:
 
   - src: "2025_esri-user-conference-san-diego.jpg"
     caption: "Maria attending the 2025 Esri User Conference in San Diego, connecting with the global GIS community and engaging with emerging geospatial technologies."
+
+  - src: "2025_harvey-mudd-clinic-day-musizi-poster-session.jpg"
+    caption: "Maria representing Musizi at the Harvey Mudd College Clinic Day poster session, presenting the project with the student team in 2025."
 
   - src: "2025-05-05_dissertation-proposal-defense.jpg"
     caption: "Maria with her dissertation committee following her proposal defense at Claremont Graduate University, May 2025."
@@ -106,7 +119,7 @@ gallery:
     caption: "Portrait of Maria in traditional dress, February 2025."
 
 
-  # 2024 — Academic milestones, research, and professional engagement
+  # 2024 — Graduate education, research, and professional engagement
   - src: "2024-11-08_jhu-malaria-symposium-poster-1.jpg"
     caption: "Maria at the 10th Future of Malaria Research Symposium at Johns Hopkins, November 2024."
 
@@ -120,9 +133,12 @@ gallery:
     caption: "Maria at the Uganda Equator monument, January 2024."
 
 
-  # 2023 — GIS, experiential learning, service, and cultural engagement
+  # 2023 — GIS, technology leadership, experiential learning, and service
   - src: "2023-11-21_yusen-terminals-la-port-class-tour.jpg"
     caption: "Maria participating in a class tour of Yusen Terminals at the Port of Los Angeles, connecting classroom learning with real-world logistics and port operations, November 21, 2023."
+
+  - src: "2023_unaa-technology-forum-dallas-youth-representative.jpg"
+    caption: "Maria representing Ugandan North American youth at the 2023 UNAA Technology Forum in Dallas, Texas, participating in discussions on technology, innovation, and community development."
 
   - src: "2023_esri-user-conference-cgu-student-ambassado.jpg"
     caption: "Maria serving as a Student Ambassador representing the Claremont Graduate University GIS program at the 2023 Esri User Conference in San Diego."
@@ -135,3 +151,16 @@ gallery:
 
   - src: "2023-02-24_uganda-cultural-exhibit.jpg"
     caption: "Maria sharing Ugandan culture at a cultural exhibit, February 2023."
+
+
+  # 2019 — Community engagement and practical skills development
+  - src: "2019_teresa-ministries-urban-farming-training.jpg"
+    caption: "Maria participating in an urban farming training with Teresa Ministries Uganda, supporting practical skills development and community engagement, 2019."
+
+
+  # 2018 — Academic milestones, research, and innovation
+  - src: "2018-03-18_master-information-technology-graduation.jpg"
+    caption: "Maria celebrating her Master of Information Technology graduation, March 18, 2018."
+
+  - src: "2018_nche-research-innovation-exhibition-award.jpg"
+    caption: "Maria receiving recognition for the University of Kisubi at the National Council for Higher Education Research and Innovation Exhibition, 2018."
