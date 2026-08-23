@@ -24,15 +24,21 @@ stats:
     label: "Response rate"
 
 # Courses at each institution. To add a course, copy a "- " line.
-csusb:
+California State University, San Bernardino (CSUSB): Fall 2026
+  - "IST 2510-01 — Big Data Analytics"
+  - "IST 3110-04 — Management of Information Technology"
+  - "IST 3110-05 — Management of Information Technology"
+  - "IST 3110-07— Management of Information Technology"
+  
+California State University, San Bernardino (CSUSB): Spring 2026
   - "IST 2310 — Application Development"
   - "IST 2510 — Big Data Analytics"
   - "IST 3110 — Management of Information Technology"
   - "IST 5930 — Seminar in Information Systems & Technology (graduate)"
 
-csusbNote: "Taught across in-person, online, and hybrid sections (Fall 2025 – Summer 2026); continuing in Fall 2026."
+Note: "Taught across in-person, online, and hybrid sections (Fall 2025 – Summer 2026); continuing in Fall 2026."
 
-kisubi:
+University of Kisubi:
   - "Computer Teaching Methods"
   - "Computer Studies / Fundamentals of IT"
   - "Educational Technology"
