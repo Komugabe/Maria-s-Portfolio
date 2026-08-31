@@ -10,6 +10,9 @@ lede: "A geospatial data scientist working at the intersection of spatial analyt
 
 # Academic Appointments. To add one, copy a "- role / org / dates" block.
 appointments:
+ - role: "Adjunct Professor for IST 371: GeoAI & Geospatial Deep Learning"
+    org: "Center for Information Systems & Technology, Claremont Graduate University"
+    dates: "August 2026 – Present"
   - role: "Research Fellow"
     org: "Center for Information Systems & Technology, Claremont Graduate University"
     dates: "May 2026 – Present"
