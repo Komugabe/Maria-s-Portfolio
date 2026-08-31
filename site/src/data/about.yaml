@@ -10,21 +10,26 @@ lede: "A geospatial data scientist working at the intersection of spatial analyt
 
 # Academic Appointments. To add one, copy a "- role / org / dates" block.
 appointments:
- - role: "Adjunct Professor for IST 371: GeoAI & Geospatial Deep Learning"
+  - role: "Adjunct Professor for IST 371: GeoAI & Geospatial Deep Learning"
     org: "Center for Information Systems & Technology, Claremont Graduate University"
     dates: "August 2026 – Present"
+
   - role: "Research Fellow"
     org: "Center for Information Systems & Technology, Claremont Graduate University"
     dates: "May 2026 – Present"
+
   - role: "Course Developer — IST 371: GeoAI & Geospatial Deep Learning"
     org: "Claremont Graduate University"
-    dates: "May 2026 – Present"
+    dates: "May 2026 – August 2026"
+
   - role: "Lecturer"
     org: "Dept. of Information & Decision Sciences, California State University, San Bernardino"
     dates: "Aug 2025 – Present"
+
   - role: "Curriculum Consultant & Institutional Liaison"
     org: "Harvey Mudd College Clinic – Musizi University Partnership"
     dates: "Mar 2023 – Present"
+
   - role: "Lecturer in Information Technology"
     org: "University of Kisubi, Uganda"
     dates: "Mar 2018 – 2025"
