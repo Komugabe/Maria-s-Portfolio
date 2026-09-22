@@ -26,7 +26,7 @@ San Bernardino, California | August 2025–Present
 **Claremont Graduate University**
 
 **Research Fellow, Center for Information Systems and Technology**  
-Claremont, California | May 2026–Present
+Claremont, California | May 2026–August 2026
 
 - Conduct interdisciplinary research in Information Systems, artificial intelligence, healthcare analytics, geographic information systems, and emerging technologies.
 
