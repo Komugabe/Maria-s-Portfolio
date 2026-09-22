@@ -14,12 +14,14 @@ My primary work focuses on bridging the gap between advanced spatial modeling an
 
 - **Research Fellow** — Center for Information Systems and Technology, Claremont Graduate University · May 2026–Present · Claremont, CA
   Conducting interdisciplinary research in GIS, healthcare analytics, and generative GeoAI; mentoring graduate researchers and leading doctoral dissertation supervision.
-- **Course Developer (IST 371: GeoAI & Geospatial Deep Learning)** — Claremont Graduate University · May 2026–Present
-  Architected a graduate seminar integrating machine learning, spatial modeling, and geospatial deep learning aligned with Quality Matters instructional standards.
+- **Adjunct Professor (IST 371: GeoAI & Geospatial Deep Learning)** — Claremont Graduate University · August 2026–Present
+ Integrating machine learning, spatial modeling, and geospatial deep learning.
 - **Lecturer** — Department of Information and Decision Sciences, California State University, San Bernardino · August 2025–Present
   Teaching undergraduate and graduate courses in Big Data Analytics, Application Development, Management of Information Technology, and Information Systems.
 - **Curriculum Consultant & Institutional Liaison** — Harvey Mudd College Clinic–Musizi University Partnership · March 2023–Present · Claremont, CA & Kampala, Uganda
   Guiding undergraduate Clinic teams in developing computing and software engineering curricula tailored to Ugandan regulatory (NCHE) and industry standards.
+- **Course Developer (IST 371: GeoAI & Geospatial Deep Learning)** — Claremont Graduate University · May 2026–August 2026
+  Architected a graduate seminar integrating machine learning, spatial modeling, and geospatial deep learning aligned with Quality Matters instructional standards.
 - **Lecturer in Information Technology** — University of Kisubi · March 2018–2025 · Kisubi, Uganda
   Delivering courses across IT, Systems Analysis, and Analytics, while supervising undergraduate and graduate capstone research projects.
 
