@@ -45,7 +45,7 @@ Claremont, California | August 2026–Present
 
 
 **Course Developer, IST 371: GeoAI and Geospatial Deep Learning**  
-Claremont, California | May 2026–Present
+Claremont, California | May-August 2026
 
 - Designed a graduate-level course in GeoAI and Geospatial Deep Learning.
 
