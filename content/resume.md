@@ -39,8 +39,8 @@ Claremont, California | May 2026–August 2026
 - Work with university research and sponsored-program offices to identify external funding opportunities and strengthen collaborative research activity.
 
 - Contribute to interdisciplinary academic programming and the research mission of the Center for Information Systems and Technology.
-  
-- **Adjunct Professor, IST 371: GeoAI and Geospatial Deep Learning**  
+
+ **Adjunct Professor, IST 371: GeoAI and Geospatial Deep Learning**  
 Claremont, California | August 2026–Present
 
 
