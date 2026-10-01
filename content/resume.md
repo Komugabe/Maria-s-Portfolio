@@ -26,7 +26,7 @@ San Bernardino, California | August 2025–Present
 **Claremont Graduate University**
 
 **Research Fellow, Center for Information Systems and Technology**  
-Claremont, California | May 2026–August 2026
+Claremont, California | May 2026 Present
 
 - Conduct interdisciplinary research in Information Systems, artificial intelligence, healthcare analytics, geographic information systems, and emerging technologies.
 
@@ -43,6 +43,9 @@ Claremont, California | May 2026–August 2026
  **Adjunct Professor, IST 371: GeoAI and Geospatial Deep Learning**  
 Claremont, California | August 2026–Present
 
+-	Deliver graduate-level instruction in geospatial artificial intelligence, spatial analytics, and deep learning architectures to students across the Claremont Colleges.
+-	Lead synchronous and asynchronous class sessions, direct hands-on technical labs using ArcGIS Pro and spatial machine learning libraries, and evaluate student progress.
+-	Mentor graduate students on applied research projects integrating spatial block cross-validation, spatial autoregressive models, and GeoAI foundation models.
 
 **Course Developer, IST 371: GeoAI and Geospatial Deep Learning**  
 Claremont, California | May-August 2026
